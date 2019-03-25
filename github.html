@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nice</title>
+<style>
+	textarea {
+		max-width: 90%;
+		max-height: 40%;
+		position: absolute;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+	#text {
+		top: 10px;
+	}
+	#textResult {
+		bottom: 50px;
+	}
+</style>
+</head>
+<body>
+	<textarea name="textarea" id="text" rows="200" cols="3000" onInput="change()" placeholder="Type your post"></textarea>
+	<textarea id="textResult" rows="200" cols="3000" readonly></textarea>
+	<script>
+	function change() {
+		var x = document.getElementById("text").value
+		var y = x.split(" ");
+		console.log(y);
+		y = y.map((el) => {
+			if (el.toString().toLowerCase() == "white")
+				return "Jewish";
+			if (el.toString().toLowerCase() == "whites")
+				return "Jews";
+			if (el.toString().toLowerCase() == "men")
+				return "women";
+			if (el.toString().toLowerCase() == "women")
+				return "men";
+			if (el.toString().toLowerCase() == "woman")
+				return "man";
+			if (el.toString().toLowerCase() == "man")
+				return "woman";
+			return el;
+		});
+		y = y.join(' ');
+		document.getElementById("textResult").value = y
+	}
+	</script>
+</body>
+</html>
